@@ -1,0 +1,39 @@
+{
+  "name": "arduino-mcp-extension",
+  "version": "0.1.0",
+  "description": "MCP (Model Context Protocol) server integration for Arduino IDE",
+  "license": "AGPL-3.0-or-later",
+  "main": "lib/node/arduino-mcp-backend-module",
+  "types": "lib/node/arduino-mcp-backend-module",
+  "bin": {
+    "arduino-mcp-server": "./lib/sidecar/server.js"
+  },
+  "keywords": [
+    "theia-extension",
+    "arduino",
+    "mcp",
+    "claude"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@theia/core": "1.57.0",
+    "arduino-ide-extension": "2.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.4.5"
+  },
+  "theiaExtensions": [
+    {
+      "backend": "lib/node/arduino-mcp-backend-module",
+      "frontend": "lib/browser/arduino-mcp-frontend-module"
+    }
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "build:dev": "yarn build",
+    "watch": "tsc -w"
+  }
+}
